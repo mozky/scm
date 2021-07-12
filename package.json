@@ -1,0 +1,19 @@
+{
+  "name": "scm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "commander": "^8.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "node-fetch": "^2.6.1"
+  }
+}
