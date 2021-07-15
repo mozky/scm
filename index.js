@@ -18,8 +18,8 @@ const options = program.opts()
 
 const woo = new Woo(options)
 
-const runGetAllProducts = async () => {
-  await woo.getAllLists()
+const runGetAllProducts = async ({ ignore }) => {
+  await woo.getAllLists(ignore)
 }
 
 const runGetProductBySKU = async (sku) => {
@@ -39,6 +39,7 @@ const runGetOrderbyNumber = async (number) => {
 program
   .command('products')
   .description('prints the list of products for all processing orders')
+  .option('-i, --ignore <ignore...>', 'order ids to ignore')
   .action(runGetAllProducts)
 
 program

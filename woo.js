@@ -24,12 +24,13 @@ class Woo {
     return await response.json()
   }
 
-  async getAllLists() {
+  async getAllLists(orderIdsToIgnore) {
     const response = await this.sendRequest('orders?status=processing&per_page=50')
 
     console.log(`TOTAL # OF ORDERS: ${response.length}`)
 
     const itemsMap = response.reduce((acc, curr) => {
+      if (orderIdsToIgnore.includes(curr.number)) return acc
       const items = curr.line_items.map(i => ({...i, order: curr.number}))
       return acc.concat(items)
     }, []).reduce((acc, curr) => {
